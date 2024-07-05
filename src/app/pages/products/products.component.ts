@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ProductListComponent } from "../../components/products/product-list/product-list.component";
+import { ProductFormComponent } from "../../components/products/product-form/product-form.component";
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { ModalComponent } from "../../components/modal/modal.component";
 
@@ -6,8 +8,8 @@ import { ModalComponent } from "../../components/modal/modal.component";
   selector: "app-products",
   standalone: true,
   imports: [
-    ProductsListComponent,
-    ProductsFormComponent,
+    ProductFormComponent,
+    ProductListComponent,
     LoaderComponent,
     ModalComponent,
   ],
