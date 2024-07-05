@@ -8,7 +8,7 @@ import { ProductFormComponent } from "../product-form/product-form.component";
 import { ProductsService } from "../../../services/product.service";
 
 @Component({
-  selector: "app-products",
+  selector: "app-product-list",
   standalone: true,
   imports: [
     CommonModule,
