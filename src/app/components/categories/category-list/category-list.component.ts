@@ -1,11 +1,12 @@
 import { Component, effect, inject } from "@angular/core";
-import { ICategory } from "../../../interfaces";
+import { ICategory, IRole } from "../../../interfaces";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ModalComponent } from "../../modal/modal.component";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
 import { CategoryFormComponent } from "../category-form/category-form.component";
 import { CategoryService } from "../../../services/category.service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-category-list",
@@ -21,6 +22,7 @@ import { CategoryService } from "../../../services/category.service";
   styleUrl: "./category-list.component.scss",
 })
 export class CategoryListComponent {
+  public superRole: boolean;
   public search: String = "";
   public categoryList: ICategory[] = [];
   private service = inject(CategoryService);
@@ -30,11 +32,13 @@ export class CategoryListComponent {
     name: "",
   };
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.service.getAllSignal();
     effect(() => {
       this.categoryList = this.service.categories$();
     });
+
+    this.superRole = this.authService.hasRole(IRole.superAdmin);
   }
 
   showDetail(category: ICategory, modal: any) {

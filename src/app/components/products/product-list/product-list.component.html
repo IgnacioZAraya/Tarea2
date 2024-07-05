@@ -30,6 +30,7 @@
               type="button"
               (click)="showDetail(item, formModal)"
               class="btn btn-secondary"
+              *ngIf="superRole"
             >
               <i class="fa-solid fa-eye white"></i>
             </button>
@@ -37,6 +38,7 @@
               type="button"
               (click)="deleteProduct(item)"
               class="btn btn-danger"
+              *ngIf="superRole"
             >
               <i class="fa-solid fa-trash white"></i>
             </button>

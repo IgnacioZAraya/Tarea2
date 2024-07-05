@@ -54,7 +54,7 @@ export const routes: Routes = [
       {
         path: "products",
         component: ProductsComponent,
-        canActivate: [AdminRoleGuard],
+        canActivate: [AuthGuard],
         data: {
           authorities: [IRole.superAdmin, IRole.user],
           name: "Products",
@@ -63,7 +63,7 @@ export const routes: Routes = [
       {
         path: "categories",
         component: CategoriesComponent,
-        canActivate: [AdminRoleGuard],
+        canActivate: [AuthGuard],
         data: {
           authorities: [IRole.superAdmin, IRole.user],
           name: "Categories",
