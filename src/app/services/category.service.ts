@@ -9,7 +9,7 @@ import { Observable, catchError, tap, throwError } from "rxjs";
 export class CategoryService extends BaseService<ICategory> {
   protected override source: string = "categories";
   private categoryListSignal = signal<ICategory[]>([]);
-  get products$() {
+  get categories$() {
     return this.categoryListSignal;
   }
   getAllSignal() {
@@ -23,7 +23,7 @@ export class CategoryService extends BaseService<ICategory> {
       },
     });
   }
-  saveProductSignal(category: ICategory): Observable<any> {
+  saveCategorySignal(category: ICategory): Observable<any> {
     return this.add(category).pipe(
       tap((response: any) => {
         this.categoryListSignal.update((categories) => [
@@ -37,7 +37,7 @@ export class CategoryService extends BaseService<ICategory> {
       })
     );
   }
-  updateProductSignal(category: ICategory): Observable<any> {
+  updateCategorySignal(category: ICategory): Observable<any> {
     return this.edit(category.id, category).pipe(
       tap((response: any) => {
         const updatedProducts = this.categoryListSignal().map((c) =>
@@ -51,7 +51,7 @@ export class CategoryService extends BaseService<ICategory> {
       })
     );
   }
-  deleteProductSignal(category: ICategory): Observable<any> {
+  deleteCategorySignal(category: ICategory): Observable<any> {
     return this.del(category.id).pipe(
       tap((response: any) => {
         const updatedCategories = this.categoryListSignal().filter(
