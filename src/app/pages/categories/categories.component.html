@@ -14,7 +14,7 @@
         <p class="mb-0">Add user</p>
       </button>
     </div>
-    <app-categories-list></app-categories-list>
+    <app-category-list></app-category-list>
     } @loading (after 100ms; minimum 1s){
     <app-loader></app-loader>
     }
@@ -22,5 +22,5 @@
 </div>
 
 <app-modal size="lg" #formModal>
-  <app-categories-form [title]="'Add Category'"></app-categories-form>
+  <app-category-form [title]="'Add Category'"></app-category-form>
 </app-modal>
