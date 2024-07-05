@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { LoaderComponent } from "../../components/loader/loader.component";
+import { ModalComponent } from "../../components/modal/modal.component";
 
 @Component({
-  selector: 'app-categories',
+  selector: "app-categories",
   standalone: true,
-  imports: [],
-  templateUrl: './categories.component.html',
-  styleUrl: './categories.component.scss'
+  imports: [
+    CategoryListComponent,
+    CategoryFormComponent,
+    LoaderComponent,
+    ModalComponent,
+  ],
+  templateUrl: "./categories.component.html",
+  styleUrl: "./categories.component.scss",
 })
-export class CategoriesComponent {
-
-}
+export class CategoriesComponent {}
