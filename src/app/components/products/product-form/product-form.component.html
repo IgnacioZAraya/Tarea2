@@ -104,21 +104,21 @@
     <div class="col-6 pt-3">
       <label for="categoryName" class="form-label mb-2"> Category </label>
       <input
-        #category="ngModel"
+        #categoryName="ngModel"
         type="text"
         class="form-control"
         id="categoryName"
         name="categoryName"
         placeholder="Kitchen"
-        [(ngModel)]="product.category"
+        [(ngModel)]="category.name"
         [ngClass]="{
-          'is-invalid': category.invalid && category.touched,
-          'is-valid': category.valid && category.touched
+          'is-invalid': categoryName.invalid && categoryName.touched,
+          'is-valid': categoryName.valid && categoryName.touched
         }"
         required
       />
-      @if (category.invalid) {
-      <div *ngIf="category.invalid" class="invalid-feedback">
+      @if (categoryName.invalid) {
+      <div *ngIf="categoryName.invalid" class="invalid-feedback">
         Please add a valid category name
       </div>
       }

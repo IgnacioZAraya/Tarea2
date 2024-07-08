@@ -29,7 +29,7 @@ export class ProductsService extends BaseService<IProduct> {
         this.productListSignal.update((products) => [response, ...products]);
       }),
       catchError((error) => {
-        console.error("Error saving user", error);
+        console.error("Error saving product", error);
         return throwError(error);
       })
     );
@@ -43,7 +43,7 @@ export class ProductsService extends BaseService<IProduct> {
         this.productListSignal.set(updatedProducts);
       }),
       catchError((error) => {
-        console.error("Error saving user", error);
+        console.error("Error saving product", error);
         return throwError(error);
       })
     );
@@ -57,7 +57,7 @@ export class ProductsService extends BaseService<IProduct> {
         this.productListSignal.set(updatedProducts);
       }),
       catchError((error) => {
-        console.error("Error saving user", error);
+        console.error("Error saving product", error);
         return throwError(error);
       })
     );

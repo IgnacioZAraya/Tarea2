@@ -1,3 +1,4 @@
+import { ICategory } from "./../../../interfaces/index";
 import { ProductsService } from "./../../../services/product.service";
 import { Component, Input, inject } from "@angular/core";
 import {
@@ -17,12 +18,9 @@ import { FormsModule, NgForm } from "@angular/forms";
 })
 export class ProductFormComponent {
   @Input() title!: string;
-  @Input() product: IProduct = {
-    description: "",
-    price: 0,
-    stockSize: 0,
-    name: "",
-  };
+  @Input() product: IProduct = {};
+  @Input() category: ICategory = {};
+
   @Input() action: string = "add";
   service = inject(ProductsService);
   feedbackMessage: IFeedBackMessage = {
@@ -37,6 +35,8 @@ export class ProductFormComponent {
       });
       return;
     } else {
+      this.product.category = this.category;
+
       this.service[
         this.action == "add" ? "saveProductSignal" : "updateProductSignal"
       ](this.product).subscribe({

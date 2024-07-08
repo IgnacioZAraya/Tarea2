@@ -40,7 +40,7 @@ export class CategoryFormComponent {
       ](this.category).subscribe({
         next: () => {
           this.feedbackMessage.type = IFeedbackStatus.success;
-          this.feedbackMessage.message = `Product successfully ${
+          this.feedbackMessage.message = `Category successfully ${
             this.action == "add" ? "added" : "updated"
           }`;
         },
