@@ -1,7 +1,6 @@
 import { firstValueFrom } from "rxjs";
 import { Component, effect, inject } from "@angular/core";
 import { IProduct, IRole } from "../../../interfaces";
-import { ICategory } from "../../../interfaces";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ModalComponent } from "../../modal/modal.component";
@@ -34,7 +33,6 @@ export class ProductListComponent {
     price: 0,
     stockSize: 0,
     name: "",
-    category: "",
   };
 
   constructor(private authService: AuthService) {

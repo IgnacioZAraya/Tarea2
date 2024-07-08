@@ -27,7 +27,7 @@ export interface IProduct {
   stockSize?: number;
   createdAt?: string;
   updatedAt?: string;
-  category?: ICategory["name"];
+  category?: ICategory;
 }
 
 export interface IAuthority {
