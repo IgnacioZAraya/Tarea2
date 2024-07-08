@@ -1,6 +1,6 @@
 export interface ILoginResponse {
   accessToken: string;
-  expiresIn: number
+  expiresIn: number;
 }
 
 export interface IResponse<T> {
@@ -19,8 +19,27 @@ export interface IUser {
   authorities?: IAuthority[];
 }
 
+export interface IProduct {
+  id?: number;
+  name?: string;
+  description?: string;
+  price?: number;
+  stockSize?: number;
+  createdAt?: string;
+  updatedAt?: string;
+  category?: ICategory;
+}
+
 export interface IAuthority {
   authority: string;
+}
+
+export interface ICategory {
+  id?: number;
+  name?: string;
+  description?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface IFeedBackMessage {
@@ -31,11 +50,10 @@ export interface IFeedBackMessage {
 export enum IFeedbackStatus {
   success = "SUCCESS",
   error = "ERROR",
-  default = ''
+  default = "",
 }
 
 export enum IRole {
-  admin = "ROLE_ADMIN",
   user = "ROLE_USER",
-  superAdmin = 'ROLE_SUPER_ADMIN'
+  superAdmin = "ROLE_SUPER_ADMIN",
 }
